@@ -22,16 +22,21 @@ class SteamAuth extends Controller
      * @var LightOpenID
      */
     private $openid;
+    /**
+     * @var \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
+    private $appUrl;
 
     public function __construct()
     {
         $this->apiKey  = config('app.steam.auth_key');
         $this->steamAuthUrl = config('app.steam.openid');
+        $this->appUrl = config('app.url');
     }
 
     public function steamCallback()
     {
-        $this->openid = new LightOpenID('https://steambed.test/api/steamAuth/');
+        $this->openid = new LightOpenID($this->appUrl . '/api/steamAuth/');
         if (
             $this->openid->validate() ||
             preg_match(self::PATTERN, $this->openid->identity, $matches)
@@ -42,8 +47,8 @@ class SteamAuth extends Controller
             ]], 200);
         }
         return response()->json(['data' => [
-        'error' => "Sorry, could not confirm Steam login, please try again"
-    ]], 500);
+            'error' => "Sorry, could not confirm Steam login, please try again"
+        ]], 500);
     }
 
     /**
@@ -55,8 +60,8 @@ class SteamAuth extends Controller
     public function authenticate(Request $request)
     {
         try {
-            $this->openid = new LightOpenID('https://steambed.test/api/steamAuth/callback');
-            $this->openid->returnUrl = "https://steambed.test/api/steamAuth/callback";
+            $this->openid = new LightOpenID($this->appUrl . '/api/steamAuth/');
+            $this->openid->returnUrl = $this->appUrl . "/api/steamAuth/callback";
             $this->openid->identity = self::STEAM_LOGIN;
             return \Redirect::to($this->openid->authUrl());
         } catch (\ErrorException $e) {

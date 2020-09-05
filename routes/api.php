@@ -19,8 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['api', 'throttle:60,1']], function () {
-    Route::get('steamAuth', 'SteamAuth@authenticate');
+    Route::post('steamAuth', 'SteamAuth@authenticate');
     Route::get('steamAuth/callback', 'SteamAuth@steamCallback');
 });
-
-//Route::middleware(['api', 'throttle:100,10',])->post('steamAuth', 'SteamAuth@authenticate');
