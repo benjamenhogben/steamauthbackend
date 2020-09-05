@@ -19,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 //Route::post('api/steamUserAuth', 'SteamAuth@authenticate')->name('steamAuth');
 
-Auth::routes();
+//Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
