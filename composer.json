@@ -15,6 +15,7 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.2",
+        "lightopenid/lightopenid": "dev-master",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {

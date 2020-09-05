@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10ff418ad0566c4701ad770d2b00003b",
+    "content-hash": "58dbf66d154d7f0547b8d68c7a830cef",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1319,6 +1319,39 @@
                 }
             ],
             "time": "2020-08-09T10:34:01+00:00"
+        },
+        {
+            "name": "lightopenid/lightopenid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Mewp/lightopenid.git",
+                "reference": "9d42dc24e4dd34121c98a6491bc3ef7933a68a19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Mewp/lightopenid/zipball/9d42dc24e4dd34121c98a6491bc3ef7933a68a19",
+                "reference": "9d42dc24e4dd34121c98a6491bc3ef7933a68a19",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "homepage": "http://code.google.com/p/lightopenid/",
+            "keywords": [
+                "OpenId"
+            ],
+            "time": "2013-10-27T16:25:49+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7989,7 +8022,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "lightopenid/lightopenid": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

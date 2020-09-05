@@ -233,5 +233,8 @@ return [
 
     ],
 
-    'steam_auth_key' => env('STEAM_WEBAPI')
+    'steam' => [
+        'auth_key' => env('STEAM_WEBAPI'),
+        'openid' => env('STEAM_OPENID_ENDPOINT')
+    ]
 ];
